@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Bank</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- 1. LOGIN SCREEN -->
+    <div id="loginPage" class="box container">
+        <h2>Bank Login</h2>
+        <p>User: <strong>admin</strong> | Pass: <strong>1234</strong></p>
+        
+        <input type="text" id="username" placeholder="Username"><br><br>
+        <input type="password" id="password" placeholder="Password"><br><br>
+        
+        <button onclick="login()">Log In</button>
+    </div>
+
+    <!-- 2. MAIN BANK DASHBOARD -->
+    <div id="dashboardPage" class="container hidden">
+        <div class="header">
+            <h2>Welcome to Your Bank</h2>
+            <button onclick="logout()" class="btn-red">Log Out</button>
+        </div>
+
+        <!-- Balance Display -->
+        <div class="box balance-box">
+            <h3>Your Balance</h3>
+            <p class="money">$<span id="balanceText">1500.00</span></p>
+            <p class="small-text">Your UPI ID: admin@okbank</p>
+        </div>
+
+        <div class="grid">
+            <!-- Deposit Section -->
+            <div class="box">
+                <h3>Add Money (Deposit)</h3>
+                <input type="number" id="depositAmount" placeholder="Amount ($)"><br><br>
+                <button onclick="addMoney()" class="btn-green">Add Money</button>
+            </div>
+
+            <!-- UPI Transfer Section -->
+            <div class="box">
+                <h3>Send UPI Money</h3>
+                <input type="text" id="upiAddress" placeholder="UPI ID (example@okbank)"><br><br>
+                <input type="number" id="upiAmount" placeholder="Amount ($)"><br><br>
+                <button onclick="sendUpi()" class="btn-purple">Send Money</button>
+            </div>
+        </div>
+
+        <!-- History Section -->
+        <div class="box">
+            <h3>Past Transactions</h3>
+            <ul id="historyList">
+                <!-- Transactions will show here -->
+            </ul>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <!-- Inside the "Send UPI Money" box in index.html, add this button under your text: -->
+<button onclick="window.location.href='scan.html'" style="background-color: #0288d1; color: white; margin-top: 10px; width: 100%;">
+    📷 Scan QR Code to Pay
+</button>
+<!-- Add this button inside your index.html dashboard area -->
+<button onclick="window.location.href='bills.html'" style="background-color: #e65100; color: white; margin-top: 10px; width: 100%; font-weight: bold;">
+    💡 Pay Utility Bills (Electric, Gas, Mobile)
+</button>
+
+
+</body>
+</html>
